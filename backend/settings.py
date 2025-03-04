@@ -4,11 +4,11 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 ENV_PATH = BASE_DIR / ".env"
-load_dotenv(ENV_PATH)
+load_dotenv(ENV_PATH, override=True)
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
@@ -103,7 +103,6 @@ CSRF_TRUSTED_ORIGINS = [
     "https://www.innafaithtattoo.hu",
 ]
 
-CSRF_COOKIE_SECURE = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "static"
@@ -118,7 +117,6 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
-SESSION_COOKIE_SECURE = True
 
 EMAIL_HOST_USER = os.getenv("ADMIN_EMAIL")
 EMAIL_HOST_PASSWORD = os.getenv("ADMIN_EMAIL_PASSWORD")

@@ -1,6 +1,7 @@
 node_modules
 venv
-developement
 package-lock.json
 **/__pycache__/
 db.sqlite3
+developement/content.txt
+developement/tree.txt

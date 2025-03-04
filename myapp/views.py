@@ -7,10 +7,6 @@ from django.core.mail import send_mail
 from threading import Thread
 import os
 import hashlib
-import requests
-from django.conf import settings
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 
 @csrf_exempt
 def login_view(request):
@@ -84,6 +80,7 @@ def create_appointment(request):
 
             client_subject = f"Foglalás visszaigazolása | {appointment.reserved}"
             client_message = os.getenv("CLIENT_MESSAGE")
+            print(client_message)
 
             client_email = appointment.email  
 
