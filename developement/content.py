@@ -51,4 +51,4 @@ if __name__ == "__main__":
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(output_text)
     
-    print(f"Content has been saved to {output_path}")
+    print(f"Relevant file content has been saved to {output_path}")
