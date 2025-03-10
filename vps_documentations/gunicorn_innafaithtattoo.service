@@ -1,0 +1,18 @@
+[Unit]
+Description=Gunicorn instance to serve innafaithtattoo.hu
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/fanni_idopontfoglalo_prod_test
+Environment="PATH=/var/www/fanni_idopontfoglalo_prod_test/venv/bin"
+# If you want your .env to be read in production, you could do something like:
+# Environment="DJANGO_SECRET_KEY=..."
+# or rely on your .env loading from the code. But simplest is if your .env is
+# in the same folder and loaded by your settings.py as you do.
+
+ExecStart=/var/www/fanni_idopontfoglalo_prod_test/venv/bin/gunicorn --workers 3 --bind unix:/var/www/fanni_idopontfoglalo_prod_test/gunicorn.sock backend.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
