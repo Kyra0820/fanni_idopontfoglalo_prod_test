@@ -5,3 +5,5 @@ package-lock.json
 db.sqlite3
 developement/content.txt
 developement/tree.txt
+gunicorn.sock
+static
