@@ -37,7 +37,6 @@ def create_appointment(request):
     if request.method == "POST":
         try:
             data = json.loads(request.body)
-            print("Received Data:", data)
 
             if "date" not in data or not data["date"] or "time" not in data or not data["time"]:
                 return JsonResponse({"error": "Missing required fields: date and time"}, status=400)
@@ -80,12 +79,11 @@ def create_appointment(request):
 
             client_subject = f"Foglalás visszaigazolása | {appointment.reserved}"
             client_message = os.getenv("CLIENT_MESSAGE")
-            print(client_message)
 
             client_email = appointment.email  
 
             tattoo_subject = f"Új foglalás érkezett | {appointment.last_name} {appointment.first_name} | {appointment.reserved}"
-            tattoo_message = f"Foglalás adatai:\n\tEmail cím: {appointment.email}\n\tinstagram: {appointment.instagram}\n\ttelefonszám:{appointment.phone}\n\tváros: {appointment.city}\n\tkor: {appointment.age} év\n\ttetoválás minta: {appointment.design}\n\tötlet részletesen: {appointment.idea_details}\n\tméret: {appointment.size} cm\n\ttestrész: {appointment.body_part}\n\tszín: {appointment.color}\n\tjárt már nálad? {appointment.previous}"
+            tattoo_message = f"Foglalás adatai:\n\tEmail cím: {appointment.email}\n\tInstagram: {appointment.instagram}\n\tTelefonszám:{appointment.phone}\n\tVáros: {appointment.city}\n\tKor: {appointment.age} év\n\tTetoválás minta: {appointment.design}\n\tÖtlet részletesen: {appointment.idea_details}\n\tMéret: {appointment.size} cm\n\tTestrész: {appointment.body_part}\n\tSzín: {appointment.color}\n\tJárt már nálad? {appointment.previous}"
 
             def send_email(subject, message, recipient):
                 send_mail(subject=subject, message=message, from_email=os.getenv("ADMIN_EMAIL"), recipient_list=[recipient], fail_silently=False)

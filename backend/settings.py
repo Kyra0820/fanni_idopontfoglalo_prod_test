@@ -85,7 +85,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
-USE_TZ = True
+USE_TZ = False
+TIME_ZONE = "Europe/Budapest"
 
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
@@ -115,13 +116,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
-
-
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
 EMAIL_HOST_USER = os.getenv("ADMIN_EMAIL")
 EMAIL_HOST_PASSWORD = os.getenv("ADMIN_EMAIL_PASSWORD")
-
 
 LOGIN_USERNAME = os.getenv("LOGIN_USERNAME")
 LOGIN_PASSWORD_HASH = os.getenv("LOGIN_PASSWORD_HASH")

@@ -89,6 +89,10 @@ function App() {
             <input type="text" name="design" required />
           </label>
           <label>
+            Méret (cm)*
+            <input type="number" name="size" required />
+          </label>
+          <label>
             Az ötleted részletesen*
             <textarea name="ideaDetails" rows="4" required />
           </label>
@@ -173,7 +177,7 @@ function App() {
           <div className="footer-center">
             <h3>Kövess Be</h3>
             <div className="social-icons">
-              <a href="https://www.facebook.com/mikann001" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/share/1A6ysycvRk/" target="_blank" rel="noopener noreferrer">
                 <img src={facebookIcon} alt="Facebook" />
               </a>
               <a href="https://www.instagram.com/inna.faith.tattoo/" target="_blank" rel="noopener noreferrer">
